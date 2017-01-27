@@ -1,0 +1,84 @@
+
+
+<?php $__env->startSection('header'); ?>
+
+  <h2><?php echo Auth::user()->username; ?>'s task manager</h2>
+ 
+
+<?php $__env->stopSection(); ?>
+
+
+
+<?php $__env->startSection('content'); ?>
+  <?php if(Auth::check()): ?>
+
+    <ul class="list-group">
+      <li><a href="#" id="btn_add_new" class="btn btn-primary btn-lg" role="button" onClick="add_task('add_task');">Add new task</a></li>
+    </ul>
+
+    <section id="form_section">
+  
+      <form id="add_task" class="todo" style="display:none">
+        <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+        <div class="input-group">
+          <input class="form-control" id="task_title" type="text" name="title" placeholder="New task" value="" />
+          <span class="input-group-btn">
+            <button class="btn btn-primary" name="submit">Confirm</button>
+          </span>
+        </div>
+      </form>
+
+      <form id="edit_task" class="todo" style="display:none">
+        <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+        <input id="edit_task_id" type="hidden" value="" />
+        <div class="input-group">
+          <input class="form-control" id="edit_task_title" type="text" name="title" value="" />
+          <span class="input-group-btn">
+            <button class="btn btn-primary" name="submit">Confirm</button>
+          </span>
+        </div>
+      </form>
+
+    </section>
+
+
+
+
+    <section id="data_section" class="todo">
+
+      
+
+      <ul id="task_list" class="list-group">
+      	<?php foreach($todos as $todo): ?>
+	        
+        	<li id="<?php echo $todo->id; ?>" class="<?php echo $todo->status == 0?'list-group-item':'list-group-item done'; ?>">
+            <a href="#" onClick="task_done('<?php echo $todo->id; ?>');" class="toggle" title="Mark">
+              <span id="<?php echo $todo->id; ?>-glyph" class="glyphicon <?php echo $todo->status == 0?'glyphicon-unchecked':'glyphicon-check'; ?>"></span>
+            </a>
+            
+            <a href="#" onClick="delete_task('<?php echo $todo->id; ?>');" title="Delete"><span class="glyphicon glyphicon-trash"></span></a>
+            <a href="#" onClick="edit_task('<?php echo $todo->id; ?>');" title="Edit"><span class="glyphicon glyphicon-edit"></span></a>
+          
+            <span id="span_<?php echo $todo->id; ?>"><?php echo e($todo->title); ?></span>
+
+          </li>
+	       
+        <?php endforeach; ?>
+      </ul>
+    </section>
+
+    
+
+   
+
+  
+    
+  <?php endif; ?>
+
+  
+
+<?php $__env->stopSection(); ?>
+
+
+
+<?php echo $__env->make('master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

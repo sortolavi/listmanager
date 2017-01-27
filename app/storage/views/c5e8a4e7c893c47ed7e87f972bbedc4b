@@ -1,0 +1,10 @@
+<?php foreach($todos as $todo): ?>
+      <li id="<?php echo $todo->id; ?>" class="list-group-item">
+      	<a href="#" onClick="task_done('<?php echo $todo->id; ?>');" class="toggle">
+			<span id="<?php echo $todo->id; ?>-glyph" class="glyphicon glyphicon-unchecked"></span>
+      	</a>
+      	<span id="span_<?php echo $todo->id; ?>"><?php echo e($todo->title); ?></span>
+      	<a href="#" onClick="delete_task('<?php echo $todo->id; ?>');"  title="Delete"><span class="glyphicon glyphicon-trash"></span></a>
+      	<a href="#" onClick="edit_task('<?php echo $todo->id; ?>','<?php echo $todo->title; ?>');" title="Edit"><span class="glyphicon glyphicon-edit"></span></a>
+      </li>
+<?php endforeach; ?>

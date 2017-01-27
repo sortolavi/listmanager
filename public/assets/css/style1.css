@@ -1,0 +1,119 @@
+
+
+ol, ul {
+  list-style: none;
+}
+
+
+#data_section {
+  margin: 50px;
+  width: 600px;
+}
+
+
+.todo-list li {
+  position: relative;
+  padding: 7px 15px 7px 50px;
+  line-height: 21px;
+  font-size: 1em;
+  color: #8b8f97;
+  border-bottom: 1px solid #e6ebed;
+}
+.todo-list .toggle {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 35px;
+  font: 0/0 serif;
+  text-shadow: none;
+  color: transparent;
+}
+.todo-list .toggle:before {
+  content: '';
+  position: absolute;
+  top: 9px;
+  left: 9px;
+  width: 15px;
+  height: 15px;
+  background: #faf9f9;
+  border: 1px solid #6bb3ca;
+  border-radius: 2px;
+  -webkit-transition: box-shadow 0.2s;
+  -moz-transition: box-shadow 0.2s;
+  -o-transition: box-shadow 0.2s;
+  transition: box-shadow 0.2s;
+  -webkit-box-shadow: 0 1px 1px #dfecf4;
+  box-shadow: 0 1px 1px #dfecf4;
+}
+.todo-list .toggle:hover:before {
+  -webkit-box-shadow: 0 0 3px #6bb3ca;
+  box-shadow: 0 0 3px #6bb3ca;
+}
+.todo-list .done .toggle:before, .todo-list .toggle:active:before {
+  border-color: #c0c0c0 #ccc #d8d8d8;
+  background: #fdfcfc url("../img/sprite.png") 2px 2px no-repeat;
+  -webkit-box-shadow: inset 0 1px rgba(0, 0, 0, 0.05), inset 0 5px 5px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px rgba(0, 0, 0, 0.05), inset 0 5px 5px rgba(0, 0, 0, 0.05);
+}
+
+
+
+
+
+
+[class^="icon-"], [class*=" icon-"] {
+  display: inline-table;
+  vertical-align: -2px;
+  margin-right: 5px;
+  margin-left: 5px;
+  width: 12px;
+  height: 12px;
+  background-image: url("../img/sprite.png");
+  background-repeat: no-repeat;
+  font: 0/0 serif;
+  text-shadow: none;
+  color: transparent;
+}
+
+.icon-check {
+  background-position: 0 0;
+}
+
+.icon-add {
+  background-position: -12px 0;
+}
+
+.icon-delete {
+  float: right;
+  background-position: -24px 0;
+}
+
+.icon-settings {
+  background-position: -36px 0;
+}
+
+.icon-previous {
+  background-position: -48px 0;
+}
+
+.icon-next {
+  background-position: -60px 0;
+}
+.icon-edit {
+  float: right;
+  background-image: url("../img/edit_grey.gif");
+  background-repeat: no-repeat;
+  font: 0/0 serif;
+  text-shadow: none;
+  color: transparent;
+}
+.done{
+  text-decoration: line-through;
+}
+
+.undone{
+  text-decoration: none;
+}
+

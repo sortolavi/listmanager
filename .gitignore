@@ -1,0 +1,5 @@
+vendor/*
+app/database/seeds/*
+composer.phar
+composer.lock
+.DS_Store
